@@ -1,0 +1,45 @@
+<head>
+    <title>Intelligent.li Meteor Quickstart</title>
+    <link rel="shortcut icon" href="/static/favicon.ico">
+</head>
+<body>
+    {{> ili_example}}
+</body>
+
+<template name="ili_example">
+    <div id="content-wrapper" class="container">
+    <div id="header-image" class="row">
+        <div id="logo" class="span2"><img src="/static/ili.png" alt="Intelligent.li" ></div>
+    </div>
+    <div id="body">
+        <h1>Meteor Application Quickstart</h1>
+        <p>Well done! Your fresh new meteor application is up and running. You're now ready to build your own realtime, time series, visualisations using the power of Intelligent.li</p>
+        <h2>So what's next?</h2>
+        <div class="numberwrapper">
+            <div class="bignumber">1</div>
+            <div class="numberedblock"><strong>Connect up a sensor and post some data: </strong>Follow the instructions in our <a href="http://intelligent.li/documentation/38/hello-world/"> Hello World Tutorial</a> to get your sensors up and running.</div>
+        </div>
+        <div class="numberwrapper">
+            <div class="bignumber">2</div>
+            <div class="numberedblock"><strong>Get a list your feeds: </strong>All the feeds in your scope are listed here
+                {{#each feeds}}
+                <ul>{{_id}}</ul>
+                {{/each}} 
+            </div>
+
+        </div>
+        <div class="numberwrapper">
+            <div class="bignumber">3</div>
+            <div class="numberedblock"><strong>Present the data in realtime:</strong> Enter a feed GUID and see the data as it arrives from your sensor. 
+                <input type="text" id="guid" value="">
+                <input type="submit" id="subscribe" value="Subscribe">
+                <div id="samplewrapper">
+                    <p id="samplelabel">Sample: </p><div class="samplev" id="samplevalue">
+                        {{#constant}}
+                        {{/constant}}
+                    </div>
+                </div>    
+            </div>
+        </div>
+    </div>
+</template>
