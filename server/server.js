@@ -14,7 +14,7 @@ var observer = null;
 //certificates for accessing ili
 var clientPem = Assets.getText('client.pem');
 var keyPem = Assets.getText('key.pem');
-var caPem = Assets.getText('ca.crt');
+var caPem = Assets.getText('intelligent.li-ca.crt');
 
 //sends a list of all feeds to the client
 function publishFeeds(feedJSON) {
