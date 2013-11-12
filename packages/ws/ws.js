@@ -1,1 +1,0 @@
-WebSoecket = Npm.require('ws');

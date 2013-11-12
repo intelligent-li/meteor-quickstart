@@ -102,7 +102,7 @@ function subscribe(guid, clientId) {
 // connect to the intelligent.lo websocket service
 function openFeedSocket(){
 
-    var WebSocket = Npm.require('ws');
+    var WebSocket = Meteor.require('ws');
     
     feedSocket = new ili_FeedSocket(
         [], 
