@@ -19,9 +19,7 @@ and then install the dependant packages:
     $ cd meteor-quickstart
     $ mrt update        
 
-We need to give your application credentials to talk to Intelligent.li. To do this create a new key using the Intelligent.li management console, associate it with your scope, and download it locally. Copy the key into the `private` directory of your new repository as `client.pem` so that your application can connect to Intelligent.li. This key determines which scope your Intelligent.li application has access to. However, you'll need to pull the private key out of the `client.pem` file (everything between `-----BEGIN PRIVATE KEY-----` and `-----BEGIN PRIVATE KEY-----` and put it into `key.pem` in the `private` directory. 
-
-You're ready to start up your application:
+We need to give your application credentials to talk to Intelligent.li. To do this create a new key using the Intelligent.li management console, associate it with your scope, and download it locally. Copy (or link) the key into the `private` directory of your new repository as `client.pem` and as `key.pem` (two files) so that your application can connect to Intelligent.li. This key determines which scope your Intelligent.li application has access to. You're ready to start up your application:
 
     $ mrt
     
