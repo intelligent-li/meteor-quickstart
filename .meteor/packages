@@ -7,4 +7,5 @@ standard-app-packages
 insecure
 preserve-inputs
 d3
-ws
+npm
+intelligent.li

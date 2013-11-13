@@ -72,6 +72,11 @@ function subscribe(guid, clientId) {
     }, function (e) { console.error('Failed to bind environment: ' + e.toString()); });
 
     clientObservers[clientId] = { feed: feed, onchanged: observer };
+    console.log("feed.attributes.items: " + feed.attributes.items);
+    console.log("feed.attributes.lastsample: " + feed.attributes.get('lastSample'));
+    var ls = feed.attributes.get('lastSample');
+    var interval = feed.attributes.get('interval');
+    if (ls && interval) feed.start = ls - interval;
     feed.samples.onchanged(observer);
 }
 
