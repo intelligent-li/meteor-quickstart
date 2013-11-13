@@ -9,6 +9,10 @@ Meteor.autorun(function () {
     Meteor.subscribe("feeds");
 });
 
+Meteor.startup(function() {
+    Meteor.call('keepalive', clientId);
+});
+
 Meteor.setInterval(function () {
     console.log("keepalive " + clientId);
     Meteor.call('keepalive', clientId);
