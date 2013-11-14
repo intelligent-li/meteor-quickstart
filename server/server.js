@@ -34,7 +34,10 @@ function loadFeeds() {
         result.each(function(k, v) {
             Feeds.insert({ _id: v });
             var feed = ili_feedCache.get(v);
-            feed.load(function() { console.log(feed.tags.items); });
+            feed.load(function(result) { 
+                if (!result) { console.error("failed to load resource"); }
+                else { console.log(feed.tags.items); }
+            });
         });
     }, function () { 
         console.error('Failed to bind environment in loadFeeds()'); 
