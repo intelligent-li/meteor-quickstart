@@ -14,8 +14,8 @@ var clientObservers = {};
 var WebSocket = Meteor.require('ws');
 
 //certificates for accessing ili
-var clientPem = Assets.getText('client.pem');
-var keyPem = Assets.getText('key.pem');
+var clientPem = process.env.CERT || Assets.getText('client.pem');
+var keyPem = process.env.KEY || Assets.getText('key.pem');
 var caPem = Assets.getText('intelligent.li-ca.crt');
 
 function publishLatestSample(feed) {
