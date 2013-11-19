@@ -7,9 +7,14 @@ Meteor.autorun(function () {
 });
 
 var feeds = Session.set("feeds", []); 
+var feeds = Session.set("tags", []); 
 
 Template.ili_example.feeds = function(){
   return Session.get("feeds");
+}  
+
+Template.ili_example.tags = function(){
+  return Session.get("tags");
 }  
 
 Meteor.startup(function() {
@@ -52,8 +57,13 @@ Template.ili_example.events = {
     }
     var guid = document.getElementById("guid").value;
     var feed = ili_FeedCache.get(guid);
-    feed.load(function(){
-      console.log("Feed loaded: " + feed.tags);
+    feed.loadTags(function(){
+      var tags = [];
+      feed.tags.each(function(k,v){
+        tags.push({name:k, value:v});
+      });
+      Session.set("tags", tags);
+      console.log("Feed loaded: " + tags);
     });
 
     var observer = function(inserted, removed) {

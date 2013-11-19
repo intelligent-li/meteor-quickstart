@@ -34,10 +34,12 @@
                 <input type="text" id="guid" value="">
                 <input type="submit" id="subscribe" value="Subscribe">
                 <div id="samplewrapper">
-                    <p id="samplelabel">Sample: </p><div class="samplev" id="samplevalue">
-                        {{#constant}}
-                        {{/constant}}
-                    </div>
+                  <p id="samplelabel">Sample: </p><div class="samplev" id="samplevalue"> </div>
+                  <p id="tags">
+                    {{#each tags}}
+                  <ul>{{this.name}}:{{this.value}}</ul>
+                    {{/each}}
+                    </p>  
                 </div>    
             </div>
         </div>
