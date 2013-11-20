@@ -2,10 +2,6 @@ var clientId = uuid.v4();
 var observer = null;
 var previousValue = 0;
 
-Meteor.autorun(function () {
-  Meteor.subscribe("feeds");
-});
-
 var feeds = Session.set("feeds", []); 
 var feeds = Session.set("tags", []); 
 
