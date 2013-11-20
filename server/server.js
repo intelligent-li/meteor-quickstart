@@ -9,8 +9,8 @@ var caPem = Assets.getText('intelligent.li-ca.crt');
 var WebSocket = Meteor.require('ws');
 
 Meteor.startup(function () {
-  ili_Api.certs = { cert: clientPem, key: keyPem, ca: caPem }; 
-  ili_Api.start(function(uri) {
-    return new WebSocket(uri, ili_Api.certs);
+  ili.Api.instance.certs = { cert: clientPem, key: keyPem, ca: caPem }; 
+  ili.Api.instance.start(function(uri) {
+    return new WebSocket(uri, ili.Api.instance.certs);
   });
 });

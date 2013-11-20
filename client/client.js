@@ -18,9 +18,9 @@ Template.ili_example.tags = function(){
 }  
 
 Meteor.startup(function() {
-  ili_Api.initialise(clientId);
+  ili.Api.instance.initialise(clientId);
   Meteor.call('keepalive', clientId);
-  ili_FeedCache.query("*", function(result) { 
+  ili.feedCache.query("*", function(result) { 
     Session.set("feeds", result.values());
   });
 });
@@ -56,7 +56,7 @@ Template.ili_example.events = {
       currentFeed.feed.samples.removeChangedObserver(currentFeed.observer);
     }
     var guid = document.getElementById("guid").value;
-    var feed = ili_FeedCache.get(guid);
+    var feed = ili.feedCache.get(guid);
     feed.loadTags(function(){
       var tags = [];
       feed.tags.each(function(k,v){
