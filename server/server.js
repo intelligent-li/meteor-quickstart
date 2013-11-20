@@ -4,13 +4,10 @@
 
 //certificates for accessing ili
 var clientPem = process.env.CERT || Assets.getText('client.pem');
-var keyPem = process.env.KEY || Assets.getText('key.pem');
+var keyPem = process.env.KEY || Assets.getText('client.pem');
 var caPem = Assets.getText('intelligent.li-ca.crt');
-var WebSocket = Meteor.require('ws');
 
 Meteor.startup(function () {
   ili.Api.instance.certs = { cert: clientPem, key: keyPem, ca: caPem }; 
-  ili.Api.instance.start(function(uri) {
-    return new WebSocket(uri, ili.Api.instance.certs);
-  });
+  ili.Api.instance.start();
 });
