@@ -49,7 +49,7 @@ Signup for an heroku account if you haven't got one already, but don't create an
 
 You'll need to install the heroku tool belt, by following the instructions [here](https://devcenter.heroku.com/articles/quickstart#step-2-install-the-heroku-toolbelt). 
 
-first thing to do it setup heroku
+first thing to do is setup heroku
 
      $ heroku login     
 
@@ -64,7 +64,11 @@ first thing to do it setup heroku
 then, create the heroku app using the meteorite builpack, I'm using the name `intelligent-li-quickstart`, you'll want to choose something different:
     
     $ heroku create intelligent-li-quickstart --buildpack https://github.com/oortcloud/heroku-buildpack-meteorite.git
- 
+
+We'll need web socket support in Heroku, and at the time of writing this was experimental so you need to enable in your app manually. This won't be needed once web socket support is released.
+
+    $ heroku labs:enable websockets -a intelligent-li-quickstart
+    
 We need to setup the intelligent.li certificates. The way Heroku deals with private data is to use environment variables, so we need to add our certificate, key and the intelligent.li ca certificate as Heroku configuration items. This is a little messy so bear with me.
 
 cat you certificate pem file:
