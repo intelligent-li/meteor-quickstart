@@ -23,7 +23,7 @@
             <div class="bignumber">2</div>
             <div class="numberedblock"><strong>Get a list of your feeds: </strong>All the feeds in your scope are listed here
                 {{#each feeds}}
-                <ul>{{_id}}</ul>
+                <ul>{{this}}</ul>
                 {{/each}} 
             </div>
 
@@ -34,10 +34,13 @@
                 <input type="text" id="guid" value="">
                 <input type="submit" id="subscribe" value="Subscribe">
                 <div id="samplewrapper">
-                    <p id="samplelabel">Sample: </p><div class="samplev" id="samplevalue">
-                        {{#constant}}
-                        {{/constant}}
-                    </div>
+                  <div class="horizon" id="horizon"> </div>
+                  <p id="samplelabel">Sample: </p><div class="samplev" id="samplevalue"> </div>
+                  <p id="tags">
+                    {{#each tags}}
+                  <ul>{{this.name}}:{{this.value}}</ul>
+                    {{/each}}
+                    </p>  
                 </div>    
             </div>
         </div>

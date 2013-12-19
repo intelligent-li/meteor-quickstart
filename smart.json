@@ -1,5 +1,6 @@
 {
   "packages": {
+    "streams": {},
     "npm": {},
     "intelligent.li": {
       "git": "https://github.com/intelligent-li/Intelligent.li.js.git"
